@@ -2,19 +2,11 @@
 Desafio Trixlog
 
 Tecnologias utilizadas:
-Hibernate
-Spring
-Serviços Rest
-JSON
-Maven
-MySQL
+Hibernate, Spring, Serviços Rest, JSON, Maven, MySQL
 
-HTML
-CSS
-Bootstrap
-JavaScript
-JQuery
-AJAX
+HTML, CSS, Bootstrap, JavaScript, JQuery, AJAX
+
+Api Google Maps
 
 O projeto utilizou Maven e por isso deve ser importado como "Existing Maven Projects", em seguida selecionar o arquivo "pom.xml".Também é necessário executar o script do banco de dados: "initial_data.sql".
 
