@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+html, body, #map-canvas {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+  	padding: 0px
+}
+
+.latlng {
+	border-top: 2px solid #98b3fa;
+	border-bottom: 2px solid #98b3fa;
+	padding: 3px;
+}
+
+.submitLocation {
+	padding: 3px;
+	float:right;
+}
+
+.winbox {
+	height: 100%;
+}
+
+.toggles {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.lateral {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.alturamax {
+	max-height: 32%;
+	overflow-y: scroll;
+}
+
+#panelMarkers {
+	position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -180px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+}
