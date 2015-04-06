@@ -12,12 +12,12 @@ import com.trixlog.model.Tag;
 
 @Repository
 public class TagDAOImpl implements TagDAO {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(TagDAOImpl.class);
 
 	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory(SessionFactory sessionFactory){
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
@@ -26,7 +26,7 @@ public class TagDAOImpl implements TagDAO {
 	public List<Tag> lista() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Tag> tagsList = session.createQuery("from Tag").list();
-		for(Tag tag : tagsList){
+		for (Tag tag : tagsList) {
 			logger.info("Tag List::" + tag);
 		}
 		return tagsList;
@@ -50,7 +50,7 @@ public class TagDAOImpl implements TagDAO {
 	public void remove(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Tag tag = (Tag) session.load(Tag.class, new Integer(id));
-		if(null != tag){
+		if (tag != null) {
 			session.delete(tag);
 		}
 		logger.info("Tag deleted successfully, Tag details=" + tag);
@@ -58,7 +58,7 @@ public class TagDAOImpl implements TagDAO {
 
 	@Override
 	public Tag getTagById(int id) {
-		Session session = this.sessionFactory.getCurrentSession();		
+		Session session = this.sessionFactory.getCurrentSession();
 		Tag tag = (Tag) session.load(Tag.class, new Integer(id));
 		logger.info("Tag loaded successfully, Tag details=" + tag);
 		return tag;

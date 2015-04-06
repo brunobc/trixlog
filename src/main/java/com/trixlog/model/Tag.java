@@ -1,5 +1,6 @@
 package com.trixlog.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -13,8 +14,10 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="TAG")
-public class Tag {
+public class Tag implements Serializable {
 	
+	private static final long serialVersionUID = 3243243386428656879L;
+
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

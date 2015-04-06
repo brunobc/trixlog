@@ -1,0 +1,81 @@
+<html lang="pt,BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="pcm">
+  <meta name="author" content="brunobc">
+</head>
+<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="resources/css/mapa.css">
+<link rel="stylesheet" type="text/css" href="resources/css/toggle.css">
+<link rel="stylesheet" type="text/css" href="resources/css/tag.css">
+
+<body>
+  <div class="row">
+    <div class="col-md-3 lateral">
+
+      <img src="resources/img/trixlogo.png" class="logotrix">
+
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Tags
+        </div>
+        <div class="alturamax">
+          <ul class="list-group checked-list-box" id="lista-de-tags">
+          </ul>
+        </div>
+      </div>
+
+      <div id="div-add-tag">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Adicionar Tag" id="nova-tag">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="botao-adiciona-tag">Adicionar</button>
+          </span>
+        </div>
+      </div>
+
+      <div id="div-edita-tag" style="display: none;">
+        <div class="input-group">
+          <input type="text" class="form-control" id="edita-tag">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="botao-edita-tag">Editar</button>
+          </span>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          Locations
+        </div>
+        <div class="alturamax">
+          <ul class="list-group" id="lista-de-locations">
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-9">
+      <div id="panelMarkers">
+        <input id="esconderMarcadores" class="btn btn-default btn-xs" type="button" value="Esconder Marcadores">
+        <input id="mostrarMarcadores" class="btn btn-default btn-xs" type="button" value="Mostrar Marcadores">
+        <input id="removerMarcadores" class="btn btn-default btn-xs" type="button" value="Remover Marcadores">
+      </div>
+      <div id="map-canvas"></div>
+    </div>
+ </div>
+</body>
+
+<script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=true"></script>
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.js"></script>
+<script type="text/javascript" src="resources/js/underscore.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap-notify.js"></script>
+<script type="text/javascript" src="resources/js/mapa.js"></script>
+<script type="text/javascript" src="resources/js/tag.js"></script>
+<script type="text/javascript" src="resources/js/location.js"></script>
+</html>

@@ -1,0 +1,22 @@
+<div class="winbox">
+  <h3 id="firstHeading" class="firstHeading">
+    Location
+  </h3>
+  <input type="text" id="nomeLocation" class="form-control" placeholder="Name" value="<%= name %>">
+  <div id="bodyContent">
+    <div class="latlng">
+      <b>Latitude: </b> <%= latitude %>
+      </br>
+      <b>Longitude: </b> <%= longitude %>
+    </div>
+  </div>
+  <div id="bodyContent">
+    <%= endereco %>
+  </div>
+  <div class="submitLocation" id="divLocationNoMapaDeleta">
+    <button type="submit" class="btn btn-default" onclick="crudLocation.deletaLocation(<%= id%>, <%= latitude%>, <%= longitude%>)">Deletar</button>
+  </div>
+  <div class="submitLocation" id="divLocationNoMapa">
+    <button type="submit" class="btn btn-default" onclick="crudLocation.editaLocation(<%= id%>, <%= latitude%>, <%= longitude%>)"><%= nomeBotao %> </button>
+  </div>
+</div>

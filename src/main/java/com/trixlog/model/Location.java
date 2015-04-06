@@ -1,5 +1,6 @@
 package com.trixlog.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
@@ -20,7 +21,9 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 @Table(name="LOCATION")
-public class Location {
+public class Location implements Serializable {
+
+	private static final long serialVersionUID = 3327659930278808718L;
 
 	@Id
 	@Column(name = "id")
@@ -36,7 +39,7 @@ public class Location {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar created;
 
-	@ManyToMany
+    @ManyToMany
     @JoinTable(
             name = "LOCATIONSTAG",
             joinColumns = @JoinColumn(name = "LOCATION_ID"),

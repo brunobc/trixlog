@@ -7,7 +7,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,58 +26,48 @@ public class TagController {
 	public void setTagService(TagService tagService) {
 		this.tagService = tagService;
 	}
-
-	@RequestMapping(value = "/tags", method = RequestMethod.GET)
-	public String listTags(Model model) {
-		model.addAttribute("tag", new Tag());
-		model.addAttribute("listTags", this.tagService.lista());
-		return "tag";
+	
+	@RequestMapping("/partials/botoesTag")
+	public String botoesTag() {
+		return "partials/botoesTag";
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/tag/add", method = RequestMethod.POST)
-	public String addTag(@RequestBody String json, Model model)
-			throws IOException {
-
+	public String addTag(@RequestBody String json) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		Tag requesValue = mapper.readValue(json, Tag.class);
 		Tag tag = new Tag();
 		tag.setName(requesValue.getName());
 
 		this.tagService.adiciona(tag);
-		model.addAttribute("listTags", this.tagService.lista());
 
 		return Utils.toJson(tag);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/tag/edit", method = RequestMethod.POST)
-	public String editTag(@RequestBody String json, Model model)
-			throws IOException {
+	public void editTag(@RequestBody String json) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		Tag requesValue = mapper.readValue(json, Tag.class);
 
 		Tag tag = new Tag();
 		tag = this.tagService.getTagById(requesValue.getId());
+		
 		tag.setName(requesValue.getName());
 		this.tagService.altera(tag);
-		model.addAttribute("listTags", this.tagService.lista());
-
-		return Utils.toJson(tag);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/tag/delete", method = RequestMethod.DELETE)
-	public void deleteTag(@RequestBody String json, Model model)
-			throws IOException {
+	public void deleteTag(@RequestBody String json) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		Tag requesValue = mapper.readValue(json, Tag.class);
 
 		this.tagService.remove(requesValue.getId());
-		model.addAttribute("listTags", this.tagService.lista());
 	}
 
-	@RequestMapping(value = "/gettags", method = RequestMethod.GET)
+	@RequestMapping(value = "/tags", method = RequestMethod.GET)
 	public @ResponseBody List<Tag> getTags() {
 		return this.tagService.lista();
 	}
