@@ -12,3 +12,5 @@ O projeto utilizou Maven e por isso deve ser importado como "Existing Maven Proj
 
 Para inserir uma entidade Location basta clicar no mapa, e seus dados são exibidos numa janela, que permite a inserção, deleção e edição.
 No canto esquerdo são exibidos as listas das entidades Tags e Locations.
+
+A aplicação funciona em http://localhost:8080/trix/index.html

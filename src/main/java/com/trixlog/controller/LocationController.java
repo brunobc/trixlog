@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,14 +19,9 @@ import com.trixlog.service.LocationService;
 @Controller
 public class LocationController {
 
-	private LocationService locationService;
+	@Autowired
+	LocationService locationService;
 
-	@Autowired(required = true)
-	@Qualifier(value = "locationService")
-	public void setLocationService(LocationService locationService) {
-		this.locationService = locationService;
-	}
-	
 	@RequestMapping("/index")
 	public String formulario() {
 		return "index";

@@ -67,7 +67,7 @@ var mapTrix = (function () {
   }
 
   function incluiNoMapa(id, name, lat, lng) {
-    if (ehLocationExistente(lat, lng)) {
+    if (ehLocationExistenteNoMapa(lat, lng)) {
       var latlng = new google.maps.LatLng(lat, lng);
       var marker = new google.maps.Marker({
         position: latlng,
@@ -78,7 +78,7 @@ var mapTrix = (function () {
     }
   }
 
-  function ehLocationExistente(lat, lng) {
+  function ehLocationExistenteNoMapa(lat, lng) {
     for (var i= 0; i < marcadores.length; i++) {
       if (marcadores[i].position.lat() === lat && marcadores[i].position.lng() === lng) {
         return false;

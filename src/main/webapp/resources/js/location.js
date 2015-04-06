@@ -86,6 +86,7 @@ var crudLocation = (function () {
       'latitude': latitude,
       'longitude': longitude
     };
+    mapTrix.deletaLocationDoMapa(latitude, longitude);
 
     $.ajax({
       url: 'location/del',
@@ -99,10 +100,9 @@ var crudLocation = (function () {
       success:function() {
         $('#lista-de-locations').empty();
         crudLocation.iniciaListaDeLocations();
-        mapTrix.deletaLocationDoMapa(latitude, longitude);
         $.notify('Location removida com sucesso!',{ type: 'success' });
       },
-      error:function(jqXhr, textStatus){
+      error:function(){
         $.notify('Erro ao remover o Location.',{ type: 'warning' });
       }
     });

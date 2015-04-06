@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +18,9 @@ import com.trixlog.utils.Utils;
 @Controller
 public class TagController {
 
+	@Autowired
 	private TagService tagService;
 
-	@Autowired(required = true)
-	@Qualifier(value = "tagService")
-	public void setTagService(TagService tagService) {
-		this.tagService = tagService;
-	}
-	
 	@RequestMapping("/partials/botoesTag")
 	public String botoesTag() {
 		return "partials/botoesTag";
